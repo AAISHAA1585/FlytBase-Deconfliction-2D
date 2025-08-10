@@ -1,9 +1,5 @@
-# Drone Conflict Detection & Visualization
-
-This project checks if a drone’s planned mission will have a **spatial** and **temporal** conflict with other drones in the airspace.  
-It was made as part of the FlytBase internship assignment.
-
----
+Drone Conflict Detection & Visualization
+This project implements a strategic deconfliction system to verify the safety of a drone's planned mission. The system checks for potential spatio-temporal conflicts against other simulated drones in a shared airspace. This solution was developed as part of the FlytBase internship assignment.
 
 ## 1. What it does
 - Reads the **primary drone** mission and **other drones** missions from JSON files.
@@ -18,31 +14,35 @@ It was made as part of the FlytBase internship assignment.
 
 flytbase_deconfliction/
 │
-├── run_deconflict.py # Main script
-├── requirements.txt # Libraries needed
-├── README.md # This file
+├── run_deconflict.py    
 │
-├── deconflict/ # Code files
-│ ├── io.py # Reads JSON input
-│ ├── trajectory.py # Calculates positions
-│ ├── detector.py # Checks conflicts
-│ ├── visualizer.py # Draws and animates drones
-│ ├── utils.py # (Optional) helper functions
+├── requirements.txt     
+├── README.md             # The project documentation file
 │
-├── scenarios/ # Input data
-│ ├── primary.json
-│ ├── others.json
+├── deconflict/           # The core source code for the deconfliction system
+│   ├── io.py             # Handles reading and parsing mission data
+│   ├── trajectory.py     # Generates drone flight paths
+│   ├── detector.py       # Implements the conflict-checking logic
+│   ├── visualizer.py     # Creates the 4D animation and plots
+│   └── utils.py          # (Optional) For helper functions
 │
-├── demo/ # Output animations
-│ ├── conflict_animation.gif
+├── scenarios/            # Mission data files in JSON format
+│   ├── primary.json      # Mission for the primary drone
+│   └── others.json       # Missions for the simulated drones
 │
-└── docs/ # Extra documents
-├── reflection.pdf
+├── demo/                 # Output folder for the generated animation
+│   └── conflict_animation.gif
+│
+└── docs/                 # Project documentation and reflection files
+    └── reflection.pdf    # Reflection document
 
 3. Setup Instructions
-
 1:Install dependencies
 pip install -r requirements.txt
 
 2:Run the simulation
 python run_deconflict.py
+
+
+![3D Deconfliction Simulation](demo/conflict_animation.gif)
+
